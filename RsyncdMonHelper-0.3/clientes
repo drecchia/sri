@@ -1,0 +1,59 @@
+# numero de backup que devem se efetuados durante o dia
+$cliente{'centrodecobranca'}{'nbkp'}='6';
+# numero de clientes dentro da rede ( exceto o servidor )
+$cliente{'centrodecobranca'}{'nbkpint'}='6';
+# intervalo de horario entre as solicitacoes de backup
+$cliente{'centrodecobranca'}{'jumptime'}='2';
+# tamanho maximo de uso de disco - idealizado em contrato
+$cliente{'centrodecobranca'}{'sizemax'}='300';
+# horario do primeiro backup do dia para backup
+$cliente{'centrodecobranca'}{'starttime'}='7:58:00';
+
+$cliente{'jovensemacao'}{'nbkp'}='4';
+$cliente{'jovensemacao'}{'nbkpint'}='5';
+$cliente{'jovensemacao'}{'jumptime'}='2';
+$cliente{'jovensemacao'}{'sizemax'}='700';
+$cliente{'jovensemacao'}{'starttime'}='8:22:00';
+
+$cliente{'teste'}{'nbkp'}='6';
+$cliente{'teste'}{'nbkpint'}='1';
+$cliente{'teste'}{'jumptime'}='2';
+$cliente{'teste'}{'sizemax'}='300';
+$cliente{'teste'}{'starttime'}="9:00:00";
+
+$cliente{'eiserver'}{'nbkp'}='6';
+$cliente{'eiserver'}{'nbkpint'}='0';
+$cliente{'eiserver'}{'jumptime'}='2';
+$cliente{'eiserver'}{'sizemax'}='5000';
+$cliente{'eiserver'}{'starttime'}="7:21:00";
+
+$cliente{'cronoslan'}{'nbkp'}='7';
+$cliente{'cronoslan'}{'nbkpint'}='0';
+$cliente{'cronoslan'}{'jumptime'}='2';
+$cliente{'cronoslan'}{'sizemax'}='300';
+$cliente{'cronoslan'}{'starttime'}="7:14:00";
+
+$cliente{'donattiautomacao'}{'nbkp'}='14';
+$cliente{'donattiautomacao'}{'nbkpint'}='0';
+$cliente{'donattiautomacao'}{'jumptime'}='2';
+$cliente{'donattiautomacao'}{'sizemax'}='300';
+$cliente{'donattiautomacao'}{'starttime'}="8:22:00";
+
+$cliente{'donattiiluminacao'}{'nbkp'}='7';
+$cliente{'donattiiluminacao'}{'nbkpint'}='0';
+$cliente{'donattiiluminacao'}{'jumptime'}='2';
+$cliente{'donattiiluminacao'}{'sizemax'}='300';
+$cliente{'donattiiluminacao'}{'starttime'}="8:22:00";
+
+$cliente{'donattihidraulico'}{'nbkp'}='7';
+$cliente{'donattihidraulico'}{'nbkpint'}='0';
+$cliente{'donattihidraulico'}{'jumptime'}='2';
+$cliente{'donattihidraulico'}{'sizemax'}='300';
+$cliente{'donattihidraulico'}{'starttime'}="8:22:00";
+
+$cliente{'interprograms'}{'nbkp'}='5';
+$cliente{'interprograms'}{'nbkpint'}='2';
+$cliente{'interprograms'}{'jumptime'}='2';
+$cliente{'interprograms'}{'sizemax'}='5000';
+$cliente{'interprograms'}{'starttime'}="8:22:00";
+

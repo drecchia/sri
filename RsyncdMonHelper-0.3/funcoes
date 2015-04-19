@@ -1,0 +1,23 @@
+sub timeconvert () {
+if ($_[0] =~ /\:/) {
+        my @time=split(/\:/, $_[0]);
+        my $timestart=($time[0]*60*60)+($time[1]*60)+$time[2];
+        @time=split(/\:/, $_[1]);
+        my $timeend=($time[0]*60*60)+($time[1]*60)+$time[2];
+        return $timeend-$timestart;
+} else {
+        $time=int(int($_[0]/60)/60)."\:".int(int($_[0]/60)%60)."\:".$_[0]%60;        return $time;
+}
+}
+
+sub timeconvert2 () {
+if ($_[0] =~ /\:/) {
+        my @time=split(/\:/, $_[0]);
+        my $timestart=($time[0]*60*60)+($time[1]*60)+$time[2];
+        return $timestart;
+} else {
+        $time=int(int($_[0]/60)/60)."\:".int(int($_[0]/60)%60)."\:".$_[0]%60;        return $time;
+}
+}
+
+

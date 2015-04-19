@@ -1,0 +1,81 @@
+# STATUS: 
+
+         Got a client 200.204.54.199, saying hello
+-> \+\+ CONNECTED TO SRI.MASTER
+<- \+\+ VERSION v0.1.3
+        Checking cl_version with global_versionst
+                Checked cl_version pass trought
+-> \+\+ GO AHEAD
+<- \+\+ USERNAME: delta
+        Checking cl_username with cl_full
+                Checked cl_username pass trought
+-> \+\+ GO AHEAD
+<- \+\+ KEY:  b8103a3b2f773395a096bdf18bfb38dc
+        Checking cl_key with cl_full
+                Checked cl_key pass trought
+-> \+\+ GO AHEAD
+<- No sucessfull connections: 0 * 28
+        Checking my_alarm with global_query_alarm
+->
+Aguardando conexao.....
+
+
+------------------------------------------------------------------------------------------------
+
+
+# MOTIVO
+# EXATAMENTE AS 6:01 o mysql da um restart e fode a conexao
+# STATUS: RESOLVIDO
+
+Aguardando conexao.....
+         Got a client 200.204.54.199, saying hello
+-> \+\+ CONNECTED TO SRI.MASTER
+<- \+\+ VERSION v0.1.4
+        Checking cl_version with global_versionst
+                Checked cl_version pass trought
+-> \+\+ GO AHEAD
+<- \+\+ USERNAME: delta
+DBD::mysql::st execute failed: MySQL server has gone away at ./master.pl line 52, <GEN3317> line 2.
+DBD::mysql::st execute failed: MySQL server has gone away at ./master.pl line 52, <GEN3317> line 2.
+
+
+-----------------------------------------------------------------------------------------------
+
+# STATUS:
+
+estranhamente, depois de 3 dias, o client virou um processo zumbi
+
+
+------------------------------------------------------------------------------------------------
+
+# STATUS: 
+# A PERGUNTA DO SECULO....  como autenticou o usuario???
+
+Aguardando conexao.....
+         Got a client 200.204.54.199, saying hello
+-> \+\+ CONNECTED TO SRI.MASTER
+DBD::mysql::db do failed: MySQL server has gone away at ./master.pl line 85.
+<- \+\+ USERNAME: delta
+DBD::mysql::st execute failed: MySQL server has gone away at ./master.pl line 56, <GEN3> line 1.
+Select failed at gimmeonevalue: DBD::mysql::st execute failed: MySQL server has gone away at ./master.pl line 56, <GEN3> line 1.
+
+Reconnect failed at gimmeonevalue: DBI connect('database=SRI;host=127.0.0.1','root',...) failed: Can't connect to MySQL server on '127.0.0.1' (111) at ./master.pl line 66
+
+        Checking cl_username with cl_full
+                Checked cl_username pass trought
+-> \+\+ GO AHEAD
+<- \+\+ KEY:  b8103a3b2f773395a096bdf18bfb38dc
+DBD::mysql::st execute failed: MySQL server has gone away at ./master.pl line 56, <GEN3> line 2.
+Select failed at gimmeonevalue: DBD::mysql::st execute failed: MySQL server has gone away at ./master.pl line 56, <GEN3> line 2.
+
+Reconnect failed at gimmeonevalue: DBI connect('database=SRI;host=127.0.0.1','root',...) failed: Can't connect to MySQL server on '127.0.0.1' (111) at ./master.pl line 66
+
+        Checking cl_key with cl_full
+-> Invalid key for delta
+DBD::mysql::db do failed: MySQL server has gone away at ./master.pl line 85, <GEN3> line 2.
+Aguardando conexao.....
+
+-------------------------------------------------------------------------------------------------
+
+# STATUS:
+NAO ESTA ATUALIZANDO NA HORA CERTA A BKP_LIST

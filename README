@@ -1,0 +1,42 @@
+
+| CLIENT |----------| MASTER | ( checagem e logs feita aqui ) 
+               \----| SLAVE | ( backup feito aqui )
+
+
+0.cliente verifica se nao tem outra instancia do backup em execucao
+	0.1 se tiver rodando, sai
+	0.2 se tiver rodando por tempo excessivo, mata e inicia processo
+	0.3 relatorio bkp anterior enviado ao master na primeira sessao com sucesso
+
+1.cliente entra em contato com o master a cada 5 min, perguntando se eh hora do backup
+	0.0 master nao responde
+		Registrar no log para enviar na prox conexao sucedida
+	0.1 master responde, e diz que nao eh hora
+		Registrar no log de ambos lados
+		Cliente informa master sobre possiveis falhas de estabelecer socket enteriormente
+	0.2 master responde, e diz com ql slave ele deve fazer o backup
+		Quais pastas
+		Cliente valida o tamanho limite das pastas
+		O tamanho min de algum arquivo
+			SIM -> efetua o bkp normal
+			NAO -> gera um alerta geral, e prossegue com os demais bkps
+		Confirma se as pastas existem
+			SIM -> efetua o bkp normal
+			NAO -> gera um alerta geral, e prossegue com os demais bkps
+		Confirma excedeu mto o tamanho anterior
+			SIM -> alerta, pula pasta e aguarda autorizacao master/faz bkp do excencial dentro da pasta 
+			NAO ->
+	0.4 pergunta ao servidor master se deseja atualizar a lista de arquivos para buscar por arquivos avulsos
+		possibilidade de fazer um diff da lista antiga eh uma cogitacao
+	0.3 gravar todas informacoes sobre comunicacao nos logs
+
+2.cliente entra em contato com servidor slave
+	0.1 servidor slave atende chamado 
+	0.2 servidor slave nao atende, e cliente reporta situacao ao servidor master
+	0.3 cliente inicia o backup, com limite de upload baseado no trafego dos ultimos 20 minutos(client em servidor)
+	0.4 apos o final do backup, cliente envia o log detalhado ao servidor master/slave 
+
+3.reproduzir varias copias do backup localmente, determinante pelo espaco em disco disponivel ira saber qts bkp antigos armazenar
+
+
+CLIENTE(IPDIN) / SERVER(IPDIN) / MONITOR(IPFIX)

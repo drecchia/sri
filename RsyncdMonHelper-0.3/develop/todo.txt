@@ -1,0 +1,12 @@
+1.mto cedo, e ainda nao eh hora do bkp,  faltam hrbkp - hragora
+
+2.a hora do bkp ja passou a xx min, agora - bkp, porem ainda eh mto cedo p/ descartar o prox, entao o bkp esta atrasado
+
+3.hora inicial do bkp*nrbkp ja deu o nr de bkps necessarios, entao prox hora = amanha
+
+4.o ultimo bkp foi perdido a xx min, e o prox sera a 2h-xx respeitando a regra 2
+
+
+
+
+pensar em algo no .bash_logout sobre enviar dados pro mysql

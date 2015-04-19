@@ -1,0 +1,2 @@
+$client_username='donatti'."\n";
+$client_key='21ed75ac47e5a28f830d6ae256e0d1bd'."\n"; # should be any md5 that reverb init with SRI:

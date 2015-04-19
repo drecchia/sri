@@ -1,0 +1,8 @@
+mkdir ~/.sri
+copy client,runme.pl,account and config there
+change account file settings
+install at crontab running runme.pl -check 
+rc.local runme.pl
+
+
+Abilitar firewall de saida tcp 873/7072
