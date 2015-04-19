@@ -1,0 +1,2 @@
+$client_username='nome_usuario'."\n";
+$client_key='senha'."\n"; # should be any md5 that reverb init with SRI:
