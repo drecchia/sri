@@ -2,17 +2,51 @@
 
 # Checa se a instancia anterior esta rodando
 if ($ARGV[0] =~ /\-check/) {
-	open(PIDF, "$ENV{HOME}/.sri/pid");
-	$pid=<PIDF>;
-	close(PIDF);
-	open(CHECK, "/proc/$pid/cmdline"); 
-	while (<CHECK>) {
-		$pidrunning='1' if (/client.pl/);
+	($dev,$ino,$mode,$nlink,$uid,$gid,$rdev,$size,$atime,$mtime,$ctime,$blksize,$blocks) = stat("$ENV{HOME}/.sri/pid");
+
+	open(LATIME, "$ENV{HOME}/.sri/.mtime");
+	$lmtime=<LATIME>;
+	close(LATIME);
+#	print "Comparando $lmtime com $mtime\n";
+	if ($lmtime == $mtime) {
+#		print "No update file, client needs reload\n";
+		open(PIDF, "$ENV{HOME}/.sri/pid");
+		        $pid=<PIDF>;
+			close(PIDF);
+			open(CHECK, "/proc/$pid/cmdline");
+			     while (<CHECK>) {
+			          $pidrunning='1' if ((/client.pl/) && (!/defunct/i));
+			     }
+			close(CHECK);
+			
+		goto RELOAD;
+	} else {
+		open(LATIME, ">$ENV{HOME}/.sri/.mtime");
+		print LATIME $mtime;
+		close(LATIME);
+		die("Access time is up to date, Client is running\n");
 	}
-	close(CHECK);
 
-	die("Pid $pid is running\n") if ($pidrunning);
+	#open(PIDF, "$ENV{HOME}/.sri/pid");
+	#$pid=<PIDF>;
+	#close(PIDF);
+	#open(CHECK, "/proc/$pid/cmdline"); 
+	#while (<CHECK>) {
+#		$pidrunning='1' if ((/client.pl/) && (!/defunct/i));
+#	}
+#	close(CHECK);
 
+#	die("Pid $pid is running\n") if ($pidrunning);
+
+}
+
+if ($ARGV[0] =~ /\-reload/) {
+	RELOAD:
+	open(PIDF, "$ENV{HOME}/.sri/pid");
+        $pid=<PIDF>;
+        close(PIDF);
+	$killed=kill 9,$pid;
+	die("Pid $pid killed, restarting\n") if ($pidrunning eq '1');
 }
 
 
@@ -35,7 +69,9 @@ if ( -e "$ENV{HOME}/.sri/client.pl.new") {
 }
 
 # client die on update, use the loop to reload
-         system("$ENV{HOME}/.sri/client.pl");
+	$tmp="$ENV{HOME}";
+	$tmp=~s/\ /\\\ /g;
+         system("$tmp/.sri/client.pl");
          print "novo loop em 10s\n";
         sleep("10");
 }
