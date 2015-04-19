@@ -1,0 +1,30 @@
+####### BOTH ###########
+$global_version='0.1.82';
+$global_handshake='\+\+ CONNECTED TO SRI.MASTER'."\n";
+$global_versionst='\+\+ VERSION v'."$global_version\n";
+$global_clientun='\+\+ USERNAME:';
+$global_clientkey='\+\+ KEY: ';
+$global_answer_ahead='\+\+ GO AHEAD'."\n";
+$global_answer_refuse='\+\+ NO THANKS'."\n";
+$global_query_alarm='\+\+ CAN I DO NOW?'."\n";
+$global_query_server='\+\+ WHOIS MY SLAVE SERVER?'."\n";
+$global_query_folder='\+\+ WHAT FOLDERS SHOULD I BACKUP?'."\n";		# REGEXP
+$global_query_update='\+\+ NEED UPDATE MY LIST?'."\n";
+$global_query_preexec='\+\+ PRE-EXEC SOME FILE?'."\n";
+$global_query_ignorelist='\+\+ WHAT FILES SHOULD I IGNORE?'."\n";	# REGEXP
+$global_query_endofday='\+\+ IM TIRED, SLEEP NOW?'."\n";
+$global_query_bwlimit="\+\+ WHATS MY BAND LIMIT?"."\n";
+$global_query_rlogin="\+\+ WHATS MY RSYNC LOGIN?"."\n";
+$global_query_rpass="\+\+ WHATS MY RSYNC PASS?"."\n";
+$global_query_rmodule="\+\+ WHATS MY RSYNC MODULE?"."\n";
+
+################################
+
+######## MASTER ##############
+$server_logfile='log_server.txt';
+$server_serverslave='alaska.dnsalias.org'."\n";
+
+# it must tgz because are 2 files, and client must be runned from other pl
+# the file must always be in ONE dir, and showld begin with sri
+$global_newversion='http://www.deltatecnologia.com/sri/sri_v0182.tgz'; 
+###############################################
